@@ -22,7 +22,7 @@ services:
       - ./config:/traefik/config
       - ./logs:/traefik/logs
       - ./certs:/traefik/certs
-#      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
       networks:
       - proxy
     restart: always
