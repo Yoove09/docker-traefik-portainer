@@ -7,21 +7,21 @@ services:
     environment:
       - CONTAINER_NAME=traefik-app
 
-      - LETSENCRYPT_EMAIL=dnsadmin@example.com
+      - LETSENCRYPT_EMAIL=homelab@reuchle.eu
       - LETSENCRYPT_CHALLENGE=DNS
       - LETSENCRYPT_DNS_PROVIDER=cloudflare
 
-      - CF_API_EMAIL=dnsadmin@example.com
-      - CF_API_KEY=randomapikeyfromcloudflare
+#      - CF_API_EMAIL=homelab@reuchle.eu
+#      - CF_API_KEY=randomapikeyfromcloudflare
 
-      - DASHBOARD_HOSTNAME=traefik.example.com
+      - DASHBOARD_HOSTNAME=uwe-srv-trfk.local
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./config:/traefik/config
-      - ./logs:/traefik/logs
-      - ./certs:/traefik/certs
+      - /var/lib/docker/volumes/traeffik_config/_data:/traefik/config
+      - /var/lib/docker/volumes/traeffik_logs/_data:/traefik/logs
+      - /var/lib/docker/volumes/traeffik_certs/_data:/traefik/certs
       - /var/run/docker.sock:/var/run/docker.sock
       networks:
       - proxy
