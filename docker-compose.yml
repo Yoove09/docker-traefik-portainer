@@ -22,7 +22,6 @@ services:
       - /var/lib/docker/volumes/traeffik_config/_data:/traefik/config
       - /var/lib/docker/volumes/traeffik_logs/_data:/traefik/logs
       - /var/lib/docker/volumes/traeffik_certs/_data:/traefik/certs
-      - /var/run/docker.sock:/var/run/docker.sock
       networks:
       - proxy
     restart: always
